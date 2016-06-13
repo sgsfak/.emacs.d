@@ -26,10 +26,13 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-bright t)
+;;(load-theme 'tomorrow-night-bright t)
+(load-theme 'noctilux t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
+
+(set-default-font "Monaco-18")
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
@@ -54,7 +57,19 @@
       apropos-do-all t
 
       ;; Mouse yank commands yank at point instead of at click.
-      mouse-yank-at-point t)
+      mouse-yank-at-point t
+
+      ;; scroll one line at a time (less "jumpy" than defaults)
+
+      mouse-wheel-scroll-amount '(1 ((shift) . 1)) ;; one line at a time
+
+      mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+
+      mouse-wheel-follow-mouse 't ;; scroll window under mouse
+
+      scroll-step 1 ;; keyboard scroll one line at a time
+
+)
 
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
